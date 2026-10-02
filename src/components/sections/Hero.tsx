@@ -47,7 +47,7 @@ export function Hero() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="gap-2">
-                <a href="/resume.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-2 whitespace-nowrap">
+                <a href="https://drive.google.com/file/d/1e-rd7mVgF1P2wtPeYJDMt_NQWSnqW7gg/view?usp=sharing" target="_blank" rel="noreferrer" className="flex items-center gap-2 whitespace-nowrap">
                   Resume
                 </a>
               </Button>
