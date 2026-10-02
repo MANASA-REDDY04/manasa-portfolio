@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
 
 @theme inline {
   --color-background: var(--background);
@@ -17,27 +16,33 @@
 }
 
 :root {
-  --background: #FAFAFA;
-  --foreground: #0F172A;
-  --surface: #FFFFFF;
-  --surface-hover: #F1F5F9;
-  --border: #E2E8F0;
-  --accent: #10B981;
-  --accent-foreground: #FFFFFF;
-  --muted: #F1F5F9;
-  --muted-foreground: #64748B;
+  /* Brutalist / Premium Minimalist Dark Theme */
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --surface: #0a0a0a;
+  --surface-hover: #141414;
+  --border: #222222;
+  --accent: #FFFFFF;
+  --accent-foreground: #000000;
+  --muted: #111111;
+  --muted-foreground: #888888;
 }
 
+/* Force dark mode for 10x hacker/designer vibe */
 .dark {
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --surface: #1E293B;
-  --surface-hover: #334155;
-  --border: #334155;
-  --accent: #10B981;
-  --accent-foreground: #FFFFFF;
-  --muted: #1E293B;
-  --muted-foreground: #94A3B8;
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --surface: #0a0a0a;
+  --surface-hover: #141414;
+  --border: #222222;
+  --accent: #FFFFFF;
+  --accent-foreground: #000000;
+  --muted: #111111;
+  --muted-foreground: #888888;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -50,16 +55,42 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to right, #111 1px, transparent 1px),
+    linear-gradient(to bottom, #111 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-/* Subtle scrollbar */
+::selection {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--border);
-  border-radius: 4px;
+  background-color: #333333;
+}
+
+/* Unique 10x utility classes */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+.text-outline:hover {
+  color: #FFFFFF;
+  -webkit-text-stroke: 1px #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.glass-panel {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }

@@ -26,6 +26,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: portfolioData.personal.name,
+    jobTitle: portfolioData.personal.role,
+    url: "https://manasakandadi.vercel.app",
+    sameAs: [
+      portfolioData.personal.github,
+      portfolioData.personal.linkedin
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
@@ -41,6 +53,10 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );

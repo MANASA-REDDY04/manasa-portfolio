@@ -1,6 +1,8 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
+import { Slot } from "@radix-ui/react-slot";
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "outline" | "ghost" | "link";
@@ -9,25 +11,26 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "default", size = "default", ...props }, ref) => {
+  ({ className, variant = "default", size = "default", asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
     return (
-      <button
+      <Comp
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-[var(--background)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-bold tracking-widest uppercase transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)] disabled:pointer-events-none disabled:opacity-50 group",
           {
-            "bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-[var(--accent)]/90":
+            "bg-[var(--accent)] text-[var(--accent-foreground)] hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]":
               variant === "default",
-            "border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]":
+            "border border-[var(--border)] bg-transparent hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] active:scale-95":
               variant === "outline",
             "hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]":
               variant === "ghost",
-            "text-[var(--accent)] underline-offset-4 hover:underline":
+            "text-[var(--muted-foreground)] hover:text-[var(--accent)] rounded-none relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-[var(--accent)] after:transition-all hover:after:w-full":
               variant === "link",
-            "h-10 px-4 py-2": size === "default",
-            "h-9 rounded-md px-3": size === "sm",
-            "h-11 rounded-md px-8": size === "lg",
-            "h-10 w-10": size === "icon",
+            "h-12 px-6": size === "default",
+            "h-9 px-4 text-xs": size === "sm",
+            "h-14 px-10 text-base": size === "lg",
+            "h-12 w-12": size === "icon",
           },
           className
         )}

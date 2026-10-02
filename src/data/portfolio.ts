@@ -1,15 +1,15 @@
 export const portfolioData = {
   personal: {
     name: "Kandadi Manasa Reddy",
-    role: "Backend Engineer",
-    valueStatement: "Architecting scalable systems, robust APIs, and intelligent data pipelines.",
+    role: "Backend & Product Design Engineer",
+    valueStatement: "Specializing in high-performance architectures, complex database design, and building scalable products from the ground up.",
     location: "Hyderabad, India",
     email: "kandadimanasa03@gmail.com",
     phone: "7780631293",
     github: "https://github.com/MANASA-REDDY04",
     linkedin: "https://linkedin.com/in/kandadi-manasa",
     leetcode: "https://leetcode.com/u/manasa_1223/",
-    about: "I am a backend-focused software engineer with a strong foundation in system design, database architecture, and cloud infrastructure. Currently working as a Software Engineer at Elevare Techinex LLP, I specialize in building highly scalable APIs, robust data pipelines (ETL/ELT), and integrating AI/LLMs into practical applications. While my core expertise lies in Node.js, Python (FastAPI), and AWS, I am also comfortable working across the full stack with Next.js when needed.",
+    about: "I am a Product Design and Backend Engineer obsessed with building systems that scale elegantly. My true specialty lies in crafting robust architectures and designing complex, highly optimized databases. While I have deep expertise in backend systems (Node.js, FastAPI, AWS), I also bring a strong product-centric mindset to everything I build, ensuring that the backend serves the ultimate user experience flawlessly.",
   },
   skills: [
     { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "Java", "SQL"] },
@@ -23,25 +23,56 @@ export const portfolioData = {
   ],
   experience: [
     {
-      role: "Software Engineer (Backend & Full Stack)",
       company: "Elevare Techinex LLP",
-      type: "Full-time",
-      date: "Oct 2025 – Present",
-      description: "Building scalable backend services and full-stack solutions."
+      roles: [
+        {
+          title: "Product Engineer",
+          type: "Full-time",
+          date: "Oct 2025 – Present",
+          summary: "Owning product and technical decisions across multiple production products: a SaaS platform, a data analytics platform and an operations ERP.",
+          bullets: [
+            "FlairNow (event and exhibition management SaaS): owned system design, database design and event lifecycle for a multi-role platform (organizers, exhibitors, visitors). Implemented **RBAC**, a multi-channel **notification system** (push, WhatsApp, email) with **queue-based async processing**, and UPI/GST-compliant payments.",
+            "Trupoint (sales data intelligence): built FastAPI REST APIs and database design behind analytics dashboards, plus **ELT pipelines** with Airbyte, dbt and AWS S3.",
+            "Unified Operations ERP: designed the relational schema and SQLAlchemy models and built the FastAPI API layer. Worked with AWS (S3, EC2, Lambda, SQS, SNS).",
+            "Designed product UX and a design system for the mobile app, and built an Event Readiness dashboard."
+          ],
+          tags: ["Product Engineering", "Node.js", "Python", "FastAPI", "Next.js", "TypeScript", "PostgreSQL", "SQLAlchemy", "AWS", "dbt", "Airbyte"],
+          links: [
+            { label: "FlairNow", url: "https://flairnow.in" },
+            { label: "Trupoint", url: "https://thetrupoint.in" },
+            { label: "ERP", url: "https://unified-operations-frontend.vercel.app/" }
+          ]
+        },
+        {
+          title: "Software Engineering Intern",
+          type: "Internship",
+          date: "Aug 2025 – Oct 2025",
+          summary: "Started on the backend and API work, then moved into a full-time engineering role.",
+          bullets: [
+            "[PLACEHOLDER: I will add 1–2 specific bullets for the internship.]"
+          ],
+          tags: ["Node.js", "REST APIs", "Databases"],
+          links: []
+        }
+      ]
     },
     {
-      role: "Software Engineering Intern",
-      company: "Elevare Techinex LLP",
-      type: "Internship",
-      date: "Aug 2025 – Oct 2025",
-      description: "Contributed to core backend infrastructure and API development."
-    },
-    {
-      role: "Freelance Full Stack Web Developer",
-      company: "Self-Employed",
-      type: "Freelance",
-      date: "Jan 2024 – Present",
-      description: "Developed end-to-end web applications (MERN, Tailwind, Vite) for various clients, including aadyafilms.com, a production house website."
+      company: "Freelance",
+      roles: [
+        {
+          title: "Freelance Full Stack Web Developer",
+          type: "Self-employed",
+          date: "Jan 2024 – Present",
+          summary: "Designed, built and deployed production websites end to end for clients.",
+          bullets: [
+            "aadyafilms.com: official website for the Aadya Films production house, built on the **MERN stack** with a responsive **React + Tailwind CSS** UI."
+          ],
+          tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Vite"],
+          links: [
+            { label: "aadyafilms.com", url: "https://aadyafilms.com" }
+          ]
+        }
+      ]
     }
   ],
   education: [
@@ -59,65 +90,69 @@ export const portfolioData = {
   ],
   featuredProjects: [
     {
-      slug: "flairnow",
-      title: "FlairNow",
-      summary: "Event and exhibition management SaaS for the Indian market.",
-      role: "Overall system and DB design, event lifecycle, RBAC, multi-channel notification system with queue-based async processing, UPI/GST-compliant payments.",
-      stack: ["Node.js", "Next.js", "PostgreSQL", "AWS SQS", "Push/WhatsApp/Email"],
-      liveUrl: "https://flairnow.in",
-      githubUrl: null,
-      architectureDecisions: [
-        "Implemented a robust Role-Based Access Control (RBAC) system for organizers, exhibitors, and visitors.",
-        "Designed a multi-channel notification system (Push, WhatsApp, Email) using an asynchronous queue-based architecture to handle high throughput without blocking main threads.",
-        "Developed an event lifecycle management module with state transitions (draft to publish) and dynamic visibility controls.",
-        "Integrated UPI/GST-compliant payment workflows."
-      ],
-      diagram: `graph TD
-  A[Client Next.js] -->|REST API| B(Node.js Backend)
-  B --> C[(PostgreSQL)]
-  B -->|Async Events| D{AWS SQS Queue}
-  D --> E[Notification Worker]
-  E --> F[Email/WhatsApp/Push APIs]
-  B --> G[Payment Gateway UPI]`
-    },
-    {
       slug: "trupoint",
       title: "Trupoint",
       summary: "Sales data intelligence and analytics platform.",
-      role: "APIs, DB design, data pipelines, dashboards.",
-      stack: ["FastAPI", "Next.js", "TanStack Query", "Zustand", "AWS S3", "Airbyte", "dbt"],
+      role: "Frontend Developer & Backend Contributor (OAuth, Alerts/Reports Module).",
+      stack: ["FastAPI", "Next.js", "TanStack Query", "Zustand", "AWS SNS", "Cron Jobs", "dbt"],
       liveUrl: "https://thetrupoint.in",
       githubUrl: null,
       architectureDecisions: [
-        "Architected an ELT pipeline using Airbyte for data extraction and dbt for transformation within the data warehouse.",
-        "Built a high-performance analytics API layer using FastAPI to serve complex queries to the frontend.",
-        "Utilized AWS S3 for scalable data storage."
+        "Led frontend development, architecting intuitive dashboards for sales data visualization.",
+        "Implemented secure OAuth authentication workflows on the backend.",
+        "Designed and built a massive alerts and reports module utilizing AWS SNS and cron jobs for automated delivery.",
+        "Gained deep understanding and contributed to the design of the ELT (Extract, Load, Transform) data pipeline architecture."
       ],
       diagram: `graph TD
-  A[External Data Sources] -->|Extract| B(Airbyte)
-  B -->|Load| C[(Data Warehouse / S3)]
-  C -->|Transform| D(dbt)
-  D --> E[(Analytics DB)]
-  E --> F(FastAPI Backend)
-  F --> G[Next.js Dashboard]`
+  A[Next.js Frontend] -->|Auth| B(FastAPI Backend)
+  B --> C[OAuth Provider]
+  B -->|Cron Jobs| D{Report Generator}
+  D --> E[AWS SNS]
+  E --> F[Email/SMS Alerts]
+  G[ELT Pipeline] --> H[(Analytics DB)]
+  H --> B`
+    },
+    {
+      slug: "flairnow",
+      title: "FlairNow",
+      summary: "Event and exhibition management SaaS for the Indian market.",
+      role: "Lead Backend Engineer (70% of backend, DB design, LLM integration).",
+      stack: ["Node.js", "PostgreSQL", "LLMs", "AWS", "Offline Scanning"],
+      liveUrl: "https://flairnow.in",
+      githubUrl: null,
+      architectureDecisions: [
+        "Architected the entire backend infrastructure, taking responsibility for ~70% of the backend codebase.",
+        "Designed a complex, highly relational database schema to handle diverse event lifecycle states, organizers, and exhibitors.",
+        "Integrated LLMs for automated data extraction from unstructured inputs.",
+        "Implemented robust offline scanning capabilities for lead generation during exhibitions, syncing seamlessly when online."
+      ],
+      diagram: `graph TD
+  A[Client App] -->|REST API| B(Node.js Backend)
+  B --> C[(PostgreSQL DB)]
+  B --> D[LLM Extraction Engine]
+  A -->|Offline Mode| E[Local Cache]
+  E -->|Sync| B`
     },
     {
       slug: "unified-operations-erp",
       title: "Unified Operations ERP",
-      summary: "Comprehensive ERP system for streamlined operations.",
-      role: "Relational schema, ORM models, API layer.",
-      stack: ["FastAPI", "SQLAlchemy", "Next.js", "PostgreSQL"],
+      summary: "Comprehensive ERP system for construction site management and financial analysis.",
+      role: "End-to-end Backend Engineer.",
+      stack: ["FastAPI", "SQLAlchemy", "AWS Bedrock", "PostgreSQL"],
       liveUrl: "https://unified-operations-frontend.vercel.app/",
       githubUrl: null,
       architectureDecisions: [
-        "Designed a complex relational schema to model diverse business operations.",
-        "Implemented robust ORM models using SQLAlchemy for efficient and safe database interactions.",
-        "Built a structured REST API layer with FastAPI."
+        "Engineered the end-to-end backend architecture for a massive construction ERP.",
+        "Integrated AWS Bedrock to extract structural data from complex PDF invoices, automating data entry for material and machinery costs.",
+        "Developed modules to track employee PF, finance ledgers, and dynamic cost analysis.",
+        "Modeled complex business logic into SQLAlchemy ORM for efficient relational querying."
       ],
       diagram: `graph TD
-  A[Next.js Client] -->|REST| B(FastAPI Server)
-  B -->|SQLAlchemy ORM| C[(PostgreSQL)]
-  C -->|Schema| D{Business Entities}`
+  A[ERP Frontend] -->|API| B(FastAPI Server)
+  B --> C[(PostgreSQL)]
+  B -->|PDF Uploads| D[AWS Bedrock Integration]
+  D -->|Structured Data| B
+  B --> E{Financial Analysis Engine}`
     }
   ],
   aiProjects: [
@@ -128,29 +163,6 @@ export const portfolioData = {
       liveUrl: "https://prepwiseai-gamma.vercel.app/",
       githubUrl: "https://github.com/MANASA-REDDY04/prepwiseai"
     },
-    {
-      title: "[PLACEHOLDER: AI Project 2]",
-      description: "[PLACEHOLDER: Brief description of the AI project and its value.]",
-      stack: ["Python", "AWS Bedrock", "LangChain"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "[PLACEHOLDER: AI Project 3]",
-      description: "[PLACEHOLDER: Brief description of the AI project and its value.]",
-      stack: ["FastAPI", "OpenAI", "Vector DB"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "[PLACEHOLDER: AI Project 4]",
-      description: "[PLACEHOLDER: Brief description of the AI project and its value.]",
-      stack: ["Node.js", "Hugging Face"],
-      liveUrl: "#",
-      githubUrl: "#"
-    }
-  ],
-  otherProjects: [
     {
       title: "Smart Menu",
       description: "QR-based digital menu and ordering system with role-based access.",
